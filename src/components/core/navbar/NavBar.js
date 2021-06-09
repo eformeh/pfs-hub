@@ -207,7 +207,7 @@ export default function NavBar() {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className="btn-lg" variant="primary" type="submit">
+                    <Button align="center" className="btn-lg" variant="primary" type="submit">
                         Sign Up </Button>
                 </Modal.Footer>
             </Modal>
