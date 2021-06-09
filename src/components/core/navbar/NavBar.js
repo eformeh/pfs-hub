@@ -85,133 +85,132 @@ export default function NavBar() {
                     </Formik>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary">Close</Button>
-                    <Button className="btn-lg" variant="primary"  type="submit">
+                    <Button className="btn-lg" variant="primary" type="submit">
                         Sign In </Button>
                 </Modal.Footer>
             </Modal>
 
-            {/* this second modal is the register overlay */ }
-    <Modal
-        show={registerShow}
-        onHide={handleRegisterClose}
-        keyboard={false}
-        aria-labelledby="example-modal-sizes-title-register"
-    >
-        <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-register">
-                Register
-                </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <Formik
-                initialValues={
-                    {
-                        firstName: '',
-                        LastName: '',
-                        email: '',
-                        password: '',
-                        confirmPassword: '',
-                        gender: '',
-                        phone: '',
-                        referral: '',
-                        yearExp: '',
-                        acceptedTerms: false
-                    }}
-                validationSchema={Yup.object({
-                    firstName: Yup.string()
-                        .min(3, 'must be atleast 3 characters')
-                        .max(15, 'must be atleast 15 characters of less')
-                        .required('Required'),
-                    lastName: Yup.string()
-                        .min(3, 'must be atleast 3 characters')
-                        .max(15, 'must be atleast 15 characters of less')
-                        .required('Required'),
-                    email: Yup.string()
-                        .email('invalid Email address')
-                        .required('Required'),
-                    password: Yup.string()
-                        .required("Please provide your password.")
-                        .min(8, "Password is too short - should be 8 chars minimum.")
-                        .matches(/(?=.*[0-9])/, "Password must contain a number."),
-                    confirmPassword: Yup.string()
-                        .oneOf([Yup.ref('password'), null], "Passwords don't match!")
-                        .required('Required'),
-                    phone: Yup.number()
-                        .typeError("That doesn't look like a phone number")
-                        .positive("A phone number can't start with a minus")
-                        .integer("A phone number can't include a decimal point")
-                        .min(8)
-                        .max(14)
-                        .required('A phone number is required'),
-
-                    gender: Yup.string()
-                        .oneOf(['male', 'female'], 'please choose a gender')
-                        .required(),
-                    yearExp: Yup.string()
-                        .oneOf(['0-1 years', '1-2 years', '2-3 years', '3-4 years', '4-5 years', '5-6 years', '6-7 years', '7-8 years', '8-9 years', '9-10 years'], 'please choose a gender')
-                        .required(),
-                    acceptedTerms: Yup.boolean()
-                        .required()
-                        .oneOf([true], 'You must accept the terms and conditions'),
-                })}
-                onSubmit={(values, { setSubmitting, resetForm }) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        resetForm();
-                        setSubmitting(false);
-                    }, 3000)
-                }}
+            {/* this second modal is the register overlay */}
+            <Modal
+                show={registerShow}
+                onHide={handleRegisterClose}
+                keyboard={false}
+                aria-labelledby="example-modal-sizes-title-register"
             >
-                <Form>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email address*</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </Form.Group>
-                    <Form.Group controlId="password">
-                        <Form.Label>Password*</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="ConfirmPassword">
-                        <Form.Label> Confirm Password*</Form.Label>
-                        <Form.Control type="password" placeholder=" Confirm Password" />
-                    </Form.Group>
-                    <Form.Group controlId="Gender">
-                        <Form.Control as="select" name="gender" label="Gender*">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </Form.Control>
-                    </Form.Group>
-                    <Form.Group controlId="yearExp">
-                        <Form.Label>year(s) of Experience?*</Form.Label>
-                        <Form.Control as="select">
-                            <option>0-1 years</option>
-                            <option>1-2 years</option>
-                            <option>2-3 years</option>
-                            <option>3-4 years</option>
-                            <option>4-5 years</option>
-                            <option>5-6 years</option>
-                            <option>6-7 years</option>
-                            <option>7-8 years</option>
-                            <option>8-9 years</option>
-                            <option>9-10 years</option>
-                        </Form.Control>
-                    </Form.Group>
-                    <Form.Group controlId="ConfirmPassword">
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-register">
+                        Register
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Formik
+                        initialValues={
+                            {
+                                firstName: '',
+                                LastName: '',
+                                email: '',
+                                password: '',
+                                confirmPassword: '',
+                                gender: '',
+                                phone: '',
+                                referral: '',
+                                yearExp: '',
+                                acceptedTerms: false
+                            }}
+                        validationSchema={Yup.object({
+                            firstName: Yup.string()
+                                .min(3, 'must be atleast 3 characters')
+                                .max(15, 'must be atleast 15 characters of less')
+                                .required('Required'),
+                            lastName: Yup.string()
+                                .min(3, 'must be atleast 3 characters')
+                                .max(15, 'must be atleast 15 characters of less')
+                                .required('Required'),
+                            email: Yup.string()
+                                .email('invalid Email address')
+                                .required('Required'),
+                            password: Yup.string()
+                                .required("Please provide your password.")
+                                .min(8, "Password is too short - should be 8 chars minimum.")
+                                .matches(/(?=.*[0-9])/, "Password must contain a number."),
+                            confirmPassword: Yup.string()
+                                .oneOf([Yup.ref('password'), null], "Passwords don't match!")
+                                .required('Required'),
+                            phone: Yup.number()
+                                .typeError("That doesn't look like a phone number")
+                                .positive("A phone number can't start with a minus")
+                                .integer("A phone number can't include a decimal point")
+                                .min(8)
+                                .max(14)
+                                .required('A phone number is required'),
 
-                        <Form.Label size="15em"> i accept the terms and conditions that apply<Form.Control type="checkbox" /></Form.Label>
+                            gender: Yup.string()
+                                .oneOf(['male', 'female'], 'please choose a gender')
+                                .required(),
+                            yearExp: Yup.string()
+                                .oneOf(['0-1 years', '1-2 years', '2-3 years', '3-4 years', '4-5 years', '5-6 years', '6-7 years', '7-8 years', '8-9 years', '9-10 years'], 'please choose a gender')
+                                .required(),
+                            acceptedTerms: Yup.boolean()
+                                .required()
+                                .oneOf([true], 'You must accept the terms and conditions'),
+                        })}
+                        onSubmit={(values, { setSubmitting, resetForm }) => {
+                            setTimeout(() => {
+                                alert(JSON.stringify(values, null, 2));
+                                resetForm();
+                                setSubmitting(false);
+                            }, 3000)
+                        }}
+                    >
+                        <Form>
+                            <Form.Group controlId="email">
+                                <Form.Label>Email address*</Form.Label>
+                                <Form.Control type="email" placeholder="name@example.com" />
+                            </Form.Group>
+                            <Form.Group controlId="password">
+                                <Form.Label>Password*</Form.Label>
+                                <Form.Control type="password" placeholder="Password" />
+                            </Form.Group>
+                            <Form.Group controlId="ConfirmPassword">
+                                <Form.Label> Confirm Password*</Form.Label>
+                                <Form.Control type="password" placeholder=" Confirm Password" />
+                            </Form.Group>
+                            <Form.Group controlId="Gender">
+                                <Form.Control as="select" name="gender" label="Gender*">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </Form.Control>
+                            </Form.Group>
+                            <Form.Group controlId="yearExp">
+                                <Form.Label>year(s) of Experience?*</Form.Label>
+                                <Form.Control as="select">
+                                    <option>0-1 years</option>
+                                    <option>1-2 years</option>
+                                    <option>2-3 years</option>
+                                    <option>3-4 years</option>
+                                    <option>4-5 years</option>
+                                    <option>5-6 years</option>
+                                    <option>6-7 years</option>
+                                    <option>7-8 years</option>
+                                    <option>8-9 years</option>
+                                    <option>9-10 years</option>
+                                </Form.Control>
+                            </Form.Group>
+                            <Form.Group controlId="ConfirmPassword">
 
-                    </Form.Group>
+                                <Form.Label size="15em"> i accept the terms and conditions that apply<Form.Control type="checkbox" /></Form.Label>
 
-                </Form>
-            </Formik>
+                            </Form.Group>
 
-        </Modal.Body>
-        <Modal.Footer>
-            <Button className="btn-lg" variant="primary" type="submit">
-                Sign Up </Button>
-        </Modal.Footer>
-    </Modal>
+                        </Form>
+                    </Formik>
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="btn-lg" variant="primary" type="submit">
+                        Sign Up </Button>
+                </Modal.Footer>
+            </Modal>
 
 
         </div >
