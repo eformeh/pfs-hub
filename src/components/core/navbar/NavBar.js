@@ -1,11 +1,12 @@
 import { faSuperpowers } from '@fortawesome/free-brands-svg-icons';
 import React, { useState } from 'react';
 import { Button, Nav, Navbar, NavDropdown, Modal, Table, Form } from 'react-bootstrap';
-import logo from '../../../assets/theHubLogo.svg';
+import logo from '../../../assets/theHub
+Logo.svg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 export default function NavBar() {
-
+// these are the functions clled when toggling the modal login and register tabs
     const [loginShow, setLoginShow] = useState(false);
     const [registerShow, setRegisterShow] = useState(false);
     const handleLoginClose = () => setLoginShow(false);
@@ -52,7 +53,7 @@ export default function NavBar() {
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-login">
                         Login
-          </Modal.Title>
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Formik
@@ -100,7 +101,7 @@ export default function NavBar() {
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-register">
                         Register
-                </Modal.Title>
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Formik
